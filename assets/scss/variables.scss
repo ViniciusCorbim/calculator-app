@@ -80,7 +80,7 @@ $theme3: (
 
 @mixin animationKey($animation_name, $color) {
   animation-name: --#{$animation_name};
-  animation-duration: 150ms;
+  animation-duration: 50ms;
   animation-direction: alternate;
   animation-iteration-count: 2;
 

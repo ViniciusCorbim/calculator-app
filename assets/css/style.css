@@ -139,7 +139,7 @@ main section.calculator div.buttons_container {
       box-shadow: inset 0px -6px 1px var(--dark1); }
       main section.calculator div.buttons_container button.numbers.animationMode, main section.calculator div.buttons_container button.operation.animationMode, main section.calculator div.buttons_container button#float.animationMode {
         animation-name: --pressioned1;
-        animation-duration: 200ms;
+        animation-duration: 50ms;
         animation-direction: alternate;
         animation-iteration-count: 2; }
 @keyframes --pressioned1 {
@@ -155,7 +155,7 @@ main section.calculator div.buttons_container {
       box-shadow: inset 0px -6px 1px var(--dark3); }
       main section.calculator div.buttons_container button#reset.animationMode, main section.calculator div.buttons_container button#delete.animationMode {
         animation-name: --pressioned2;
-        animation-duration: 200ms;
+        animation-duration: 50ms;
         animation-direction: alternate;
         animation-iteration-count: 2; }
 @keyframes --pressioned2 {
@@ -171,7 +171,7 @@ main section.calculator div.buttons_container {
       box-shadow: inset 0px -6px 1px var(--dark4); }
       main section.calculator div.buttons_container button#equals.animationMode {
         animation-name: --pressioned3;
-        animation-duration: 200ms;
+        animation-duration: 50ms;
         animation-direction: alternate;
         animation-iteration-count: 2; }
 @keyframes --pressioned3 {

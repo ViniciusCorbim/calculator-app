@@ -23,7 +23,7 @@ btn_theme.addEventListener("click", function () {
 
     setTimeout(() => {
       btn.classList.remove("animationMode");
-    }, 300);
+    }, 100);
   });
 });
 //-------------------------End Buttons Animation-------------------------\\
