@@ -1,0 +1,186 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  font-size: 100%;
+  font-family: $font1;
+
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: getVar(main_background);
+}
+
+header,
+main,
+footer {
+  width: 80vw;
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  color: getVar(header_text_color);
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .themes {
+    width: 80px;
+    height: 30px;
+  }
+
+  div.themes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button.themes {
+    border-radius: 30px;
+    position: relative;
+    background-color: getVar(third_background);
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      top: 6.5px;
+      left: -65px;
+      color: getVar(header_text_color);
+    }
+
+    .circle {
+      width: 20px;
+      height: 20px;
+      background-color: getVar(color4);
+      border-radius: 50%;
+
+      position: absolute;
+      top: 5px;
+      left: getVar(circle_left);
+    }
+  }
+}
+
+main {
+  section.calculator {
+    output.display,
+    div.buttons_container {
+      border-radius: 10px;
+    }
+
+    output.display {
+      display: block;
+      width: 100%;
+      height: 80px;
+      margin: 25px 0;
+      padding: 10px;
+      background-color: getVar(second_background);
+      color: getVar(header_text_color);
+      text-align: right;
+
+      p#previous {
+        height: 15px;
+      }
+
+      p#current {
+        font-size: 2.5em;
+        padding: 15px 0 0 0;
+      }
+    }
+
+    div.buttons_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 15px;
+
+      width: 100%;
+      height: 375px;
+      margin: 0 auto;
+      padding: 25px;
+      background-color: getVar(third_background);
+
+      button {
+        font-size: 1.5em;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &.numbers,
+        &.operation,
+        &#float {
+          background-color: getVar(color1);
+          color: getVar(color2);
+          box-shadow: inset 0px -6px 1px getVar(dark1);
+
+          &.animationMode {
+            @include animationKey(
+              $animation_name: "pressioned1",
+              $color: getVar(dark1)
+            );
+          }
+        }
+
+        &#reset,
+        &#delete {
+          background-color: getVar(color3);
+          color: getVar(delete_button_color);
+          box-shadow: inset 0px -6px 1px getVar(dark3);
+
+          &.animationMode {
+            @include animationKey(
+              $animation_name: "pressioned2",
+              $color: getVar(dark3)
+            );
+          }
+        }
+
+        &#equals {
+          background-color: getVar(color4);
+          color: getVar(equals_button_color);
+          box-shadow: inset 0px -6px 1px getVar(dark4);
+
+          &.animationMode {
+            @include animationKey(
+              $animation_name: "pressioned3",
+              $color: getVar(dark4)
+            );
+          }
+        }
+
+        &#reset {
+          grid-column: 1/3;
+        }
+
+        &#equals {
+          grid-column: 3/5;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  section.attribution {
+    text-align: center;
+    margin: 50px 0;
+    color: getVar(header_text_color);
+
+    a {
+      color: getVar(header_text_color);
+    }
+  }
+}

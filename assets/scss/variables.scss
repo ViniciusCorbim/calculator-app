@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+$font1: "League Spartan", sans-serif;
+//3  -  55px
+//2  -  28px
+//1  -  5px
+
+$theme1: (
+  header_text_color: white,
+  main_background: #3b4664,
+  second_background: #181f32,
+  third_background: #252d44,
+  color1: #eae3da,
+  dark1: #b4a398,
+  color2: #30323b,
+  color3: #647299,
+  dark3: #404e75,
+  color4: #d13f30,
+  dark4: #94261b,
+  circle_left: 5px,
+  delete_button_color: white,
+  equals_button_color: white,
+);
+
+$theme2: (
+  header_text_color: #34342c,
+  main_background: #e6e6e6,
+  second_background: #c9c9c9,
+  third_background: #d1ced0,
+  color1: #e5e4e0,
+  dark1: #a89d92,
+  color2: #3b3b33,
+  color3: #388188,
+  dark3: #1c5f66,
+  color4: #c85401,
+  dark4: #873905,
+  circle_left: 28px,
+  delete_button_color: white,
+  equals_button_color: white,
+);
+
+$theme3: (
+  header_text_color: #fde143,
+  main_background: #1e0836,
+  second_background: #290b49,
+  third_background: #290b49,
+  color1: #331c48,
+  dark1: #81209b,
+  color2: #fae064,
+  color3: #590482,
+  dark3: #bc16f3,
+  color4: #00decf,
+  dark4: #88ebf0,
+  circle_left: 55px,
+  delete_button_color: white,
+  equals_button_color: #006b63,
+);
+
+:root {
+  @each $name, $value in $theme1 {
+    --#{$name}: #{$value};
+  }
+}
+
+.theme2:root {
+  @each $name, $value in $theme2 {
+    --#{$name}: #{$value};
+  }
+}
+
+.theme3:root {
+  @each $name, $value in $theme3 {
+    --#{$name}: #{$value};
+  }
+}
+
+@function getVar($varName) {
+  @return var(--#{$varName});
+}
+
+@mixin animationKey($animation_name, $color) {
+  animation-name: --#{$animation_name};
+  animation-duration: 150ms;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+
+  @keyframes --#{$animation_name} {
+    0% {
+      box-shadow: inset 0px -6px 1px $color;
+    }
+    50% {
+      box-shadow: inset 0px 0px 1px $color;
+    }
+    100% {
+      box-shadow: inset 0px 3px 1px $color;
+    }
+  }
+}

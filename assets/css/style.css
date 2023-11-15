@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+:root {
+  --header_text_color: white;
+  --main_background: #3b4664;
+  --second_background: #181f32;
+  --third_background: #252d44;
+  --color1: #eae3da;
+  --dark1: #b4a398;
+  --color2: #30323b;
+  --color3: #647299;
+  --dark3: #404e75;
+  --color4: #d13f30;
+  --dark4: #94261b;
+  --circle_left: 5px;
+  --delete_button_color: white;
+  --equals_button_color: white; }
+
+.theme2:root {
+  --header_text_color: #34342c;
+  --main_background: #e6e6e6;
+  --second_background: #c9c9c9;
+  --third_background: #d1ced0;
+  --color1: #e5e4e0;
+  --dark1: #a89d92;
+  --color2: #3b3b33;
+  --color3: #388188;
+  --dark3: #1c5f66;
+  --color4: #c85401;
+  --dark4: #873905;
+  --circle_left: 28px;
+  --delete_button_color: white;
+  --equals_button_color: white; }
+
+.theme3:root {
+  --header_text_color: #fde143;
+  --main_background: #1e0836;
+  --second_background: #290b49;
+  --third_background: #290b49;
+  --color1: #331c48;
+  --dark1: #81209b;
+  --color2: #fae064;
+  --color3: #590482;
+  --dark3: #bc16f3;
+  --color4: #00decf;
+  --dark4: #88ebf0;
+  --circle_left: 55px;
+  --delete_button_color: white;
+  --equals_button_color: #006b63; }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font-family: "League Spartan", sans-serif;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out; }
+
+body {
+  background-color: var(--main_background); }
+
+header,
+main,
+footer {
+  width: 80vw;
+  max-width: 400px;
+  margin: 40px auto; }
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--header_text_color); }
+  header h1 {
+    font-size: 2.2em; }
+  header .themes {
+    width: 80px;
+    height: 30px; }
+  header div.themes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; }
+  header button.themes {
+    border-radius: 30px;
+    position: relative;
+    background-color: var(--third_background);
+    cursor: pointer; }
+    header button.themes span {
+      position: absolute;
+      top: 6.5px;
+      left: -65px;
+      color: var(--header_text_color); }
+    header button.themes .circle {
+      width: 20px;
+      height: 20px;
+      background-color: var(--color4);
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: var(--circle_left); }
+
+main section.calculator output.display,
+main section.calculator div.buttons_container {
+  border-radius: 10px; }
+main section.calculator output.display {
+  display: block;
+  width: 100%;
+  height: 80px;
+  margin: 25px 0;
+  padding: 10px;
+  background-color: var(--second_background);
+  color: var(--header_text_color);
+  text-align: right; }
+  main section.calculator output.display p#previous {
+    height: 15px; }
+  main section.calculator output.display p#current {
+    font-size: 2.5em;
+    padding: 15px 0 0 0; }
+main section.calculator div.buttons_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+  width: 100%;
+  height: 375px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: var(--third_background); }
+  main section.calculator div.buttons_container button {
+    font-size: 1.5em;
+    border-radius: 5px;
+    cursor: pointer; }
+    main section.calculator div.buttons_container button.numbers, main section.calculator div.buttons_container button.operation, main section.calculator div.buttons_container button#float {
+      background-color: var(--color1);
+      color: var(--color2);
+      box-shadow: inset 0px -6px 1px var(--dark1); }
+      main section.calculator div.buttons_container button.numbers.animationMode, main section.calculator div.buttons_container button.operation.animationMode, main section.calculator div.buttons_container button#float.animationMode {
+        animation-name: --pressioned1;
+        animation-duration: 200ms;
+        animation-direction: alternate;
+        animation-iteration-count: 2; }
+@keyframes --pressioned1 {
+  0% {
+    box-shadow: inset 0px -6px 1px var(--dark1); }
+  50% {
+    box-shadow: inset 0px 0px 1px var(--dark1); }
+  100% {
+    box-shadow: inset 0px 3px 1px var(--dark1); } }
+    main section.calculator div.buttons_container button#reset, main section.calculator div.buttons_container button#delete {
+      background-color: var(--color3);
+      color: var(--delete_button_color);
+      box-shadow: inset 0px -6px 1px var(--dark3); }
+      main section.calculator div.buttons_container button#reset.animationMode, main section.calculator div.buttons_container button#delete.animationMode {
+        animation-name: --pressioned2;
+        animation-duration: 200ms;
+        animation-direction: alternate;
+        animation-iteration-count: 2; }
+@keyframes --pressioned2 {
+  0% {
+    box-shadow: inset 0px -6px 1px var(--dark3); }
+  50% {
+    box-shadow: inset 0px 0px 1px var(--dark3); }
+  100% {
+    box-shadow: inset 0px 3px 1px var(--dark3); } }
+    main section.calculator div.buttons_container button#equals {
+      background-color: var(--color4);
+      color: var(--equals_button_color);
+      box-shadow: inset 0px -6px 1px var(--dark4); }
+      main section.calculator div.buttons_container button#equals.animationMode {
+        animation-name: --pressioned3;
+        animation-duration: 200ms;
+        animation-direction: alternate;
+        animation-iteration-count: 2; }
+@keyframes --pressioned3 {
+  0% {
+    box-shadow: inset 0px -6px 1px var(--dark4); }
+  50% {
+    box-shadow: inset 0px 0px 1px var(--dark4); }
+  100% {
+    box-shadow: inset 0px 3px 1px var(--dark4); } }
+    main section.calculator div.buttons_container button#reset {
+      grid-column: 1/3; }
+    main section.calculator div.buttons_container button#equals {
+      grid-column: 3/5; }
+
+footer section.attribution {
+  text-align: center;
+  margin: 50px 0;
+  color: var(--header_text_color); }
+  footer section.attribution a {
+    color: var(--header_text_color); }
+
+/*# sourceMappingURL=style.css.map */
