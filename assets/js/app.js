@@ -90,6 +90,13 @@ const Calculator = {
   },
 
   delete() {
+    if (
+      this.op1 !== undefined ||
+      (this.op1 === undefined && this.textCurrent === "0")
+    ) {
+      if (this.number1 === undefined) this.printPreviousText();
+      return;
+    }
     this.textCurrent = this.textCurrent.toString().slice(0, -1);
     this.printCurrentText();
   },
@@ -180,6 +187,8 @@ const Calculator = {
     this.textPrevious = "";
     this.number1 = undefined;
     this.number2 = undefined;
+    this.op1 = undefined;
+    this.op2 = undefined;
   },
 };
 
