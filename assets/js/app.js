@@ -2,16 +2,9 @@
 const btn_theme = document.querySelector("button.themes");
 let theme = 1;
 btn_theme.addEventListener("click", function () {
-  if (theme == 3) {
-    theme = 1;
-  } else {
-    theme++;
-  }
+  document.documentElement.classList.toggle("theme" + theme, false);
 
-  document.documentElement.classList.toggle("theme1", false);
-  document.documentElement.classList.toggle("theme2", false);
-  document.documentElement.classList.toggle("theme3", false);
-
+  theme = theme === 3 ? 1 : ++theme;
   document.documentElement.classList.add("theme" + theme);
 });
 //-------------------------End Change Theme-------------------------\\
@@ -40,30 +33,6 @@ const Calculator = {
   op1: undefined,
   op2: undefined,
 
-  operations: {
-    sum(n1, n2) {
-      return n1 + n2;
-    },
-
-    subtraction(n1, n2) {
-      return n1 - n2;
-    },
-
-    multiplication(n1, n2) {
-      return n1 * n2;
-    },
-
-    division(n1, n2) {
-      return n1 / n2;
-    },
-  },
-
-  updateCurrentText(d) {
-    if (this.textCurrent.length < 16) this.textCurrent += d.toString();
-
-    if (this.number1 === undefined) this.printPreviousText();
-  },
-
   updateNumericValue() {
     if (isNaN(Number(this.textCurrent))) this.textCurrent = "0";
 
@@ -82,11 +51,10 @@ const Calculator = {
     document.getElementById("previous").innerHTML = this.textPrevious;
   },
 
-  float() {
-    if (!this.textCurrent.includes(".")) {
-      document.getElementById("current").innerHTML += ".";
-      this.textCurrent += ".";
-    }
+  updateCurrentText(d) {
+    if (this.textCurrent.length < 16) this.textCurrent += d.toString();
+
+    if (this.number1 === undefined) this.printPreviousText();
   },
 
   delete() {
@@ -114,6 +82,31 @@ const Calculator = {
     this.printPreviousText();
   },
 
+  float() {
+    if (!this.textCurrent.includes(".")) {
+      document.getElementById("current").innerHTML += ".";
+      this.textCurrent += ".";
+    }
+  },
+
+  operations: {
+    sum(n1, n2) {
+      return n1 + n2;
+    },
+
+    subtraction(n1, n2) {
+      return n1 - n2;
+    },
+
+    multiplication(n1, n2) {
+      return n1 * n2;
+    },
+
+    division(n1, n2) {
+      return n1 / n2;
+    },
+  },
+
   setOperation(operation) {
     const signals = {
       sum: "+",
@@ -139,6 +132,8 @@ const Calculator = {
       this.number2 = this.numericValue;
       this.number1 = this.operations[op3](this.number1, this.number2);
       this.number2 = undefined;
+      this.op2 = operation;
+    } else {
       this.op2 = operation;
     }
 
@@ -191,7 +186,9 @@ const Calculator = {
     this.op2 = undefined;
   },
 };
+//-------------------------------End Calculator-------------------------------\\
 
+//--------------------------functions assignment--------------------------\\
 [...document.querySelectorAll(".buttons_container button.numbers")].map(
   (btn) => {
     btn.addEventListener("click", function (e) {
@@ -224,4 +221,4 @@ document.getElementById("reset").addEventListener("click", function (e) {
 document.getElementById("equals").addEventListener("click", function (e) {
   Calculator.calculate();
 });
-//-------------------------------End Calculator-------------------------------\\
+//--------------------------end functions assignment--------------------------\\
